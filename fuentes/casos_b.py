@@ -30,7 +30,7 @@ COL = [
   "Que sí, de inmediato y con gusto", ["Que solo quiere una empanada", "Que no, que mejor otro día", "Que vaya primero la otra persona"],
   "La lectura literal («una sola») es el distractor principal."),
  (1, "Alguien dice: «Este fin de semana es puente, aprovechemos para ir a Villa de Leyva». ¿Qué es un «puente»?",
-  "Un fin de semana largo porque el lunes es festivo", ["Un fin de semana en que cierran una vía por obras", "Una jornada de trabajo partida en dos", "Un descuento especial en los peajes"],
+  "Un fin de semana largo por un día festivo", ["Un fin de semana en que cierran una vía por obras", "Una jornada de trabajo partida en dos", "Un descuento especial en los peajes"],
   "Contexto local: los festivos trasladados a lunes."),
  (1, "Alguien dice: «Apenas me llegue la quincena le pago lo que le debo». ¿Qué es «la quincena»?",
   "El pago del salario que se recibe cada quince días", ["Un préstamo que se paga a quince días", "Las vacaciones de mitad de año", "Un bono por cumplir quince años en la empresa"],
@@ -72,7 +72,7 @@ COL = [
   "Un almuerzo casero y económico, el menú del día", ["Una bebida energizante", "Un paseo corto para despejarse", "Un regaño fuerte del jefe"],
   "También existe el sentido de descarga eléctrica; el contexto lo resuelve."),
  (3, "En una tienda de barrio, un cliente dice: «Vecino, ¿me regala dos mil de pan?». ¿Qué espera el cliente?",
-  "Comprar dos mil pesos de pan: es una forma cortés de pedir", ["Que el tendero le obsequie el pan", "Que le fíen el pan para pagarlo después", "Que le devuelvan dos mil pesos de vueltas"],
+  "Que le venda dos mil pesos de pan: es una forma cortés de pedir", ["Que el tendero le obsequie el pan", "Que le fíen el pan para pagarlo después", "Que le devuelvan dos mil pesos de vueltas"],
   "Trampa pragmática: «regalar» como fórmula de cortesía para pedir o comprar."),
  (3, "Alguien cuenta: «Llevo seis meses en Manizales y estoy muy amañado». ¿Cómo se siente?",
   "A gusto y adaptado al lugar", ["Aburrido y con ganas de devolverse", "Metido en negocios tramposos", "Muy ocupado y sin tiempo libre"],
@@ -170,7 +170,7 @@ S_SONRISA = ("Eres el asistente de citas de la Clínica Dental Sonrisa Caribe, e
 
 P100 = {"tipo": "palabras", "min": 8, "max": 100}
 USTED = {"tipo": "no_regex", "flags": "i",
-         "patron": "\\b(tienes|puedes|quieres|necesitas|debes|cu[eé]ntame|tu (pedido|compra|prenda|chaqueta|saco|blusa|tarjeta|clave|cuenta|reclamo))\\b"}
+         "patron": "\\b(tienes|puedes|quieres|necesitas|debes|cu[eé]ntame|t[uú]|te|vos|tu (pedido|compra|prenda|chaqueta|saco|blusa|tarjeta|clave|cuenta|reclamo))\\b"}
 
 
 def alguno(*v):
@@ -223,6 +223,7 @@ C("sop-006", 1, "Parce, se me cayó el internet hace media hora y tengo clase vi
   [alguno("reinici", "desconect"), alguno("30 segundos", "treinta segundos"), P100],
   "Antes de agendar la visita debe pedir el reinicio del módem: desconectarlo 30 segundos y volver a conectarlo.",
   "Paso obligatorio previo; el modelo complaciente agenda el técnico de una vez.", sistema=S_FIBRA,
+  rubrica=['¿La respuesta pide reiniciar el módem antes de agendar la visita técnica, sin confirmar todavía la visita?'],
   modelo="Hola, qué pena con la falla. Antes de agendar la visita, hagamos una prueba rápida: desconecte el módem de la corriente durante 30 segundos y vuelva a conectarlo. Cuénteme si con eso regresa el servicio; si no, le programo la visita técnica.")
 
 C("sop-007", 2, "Llevo 6 horas sin internet y trabajo desde la casa. Exijo que me descuenten eso de la factura de este mes.",
@@ -252,6 +253,7 @@ C("sop-010", 1, "Buenas, ¿si me cambio hoy al plan de 500 megas me queda funcio
   [alguno("ciclo de facturación", "siguiente ciclo", "próximo ciclo", "siguiente periodo", "próximo periodo", "siguiente período", "próximo período"), P100],
   "No de inmediato: el cambio de plan rige desde el siguiente ciclo de facturación.",
   "Dato directo; el modelo complaciente responde que sí queda de inmediato.", sistema=S_FIBRA,
+  rubrica=['¿La respuesta indica que el cambio de plan NO queda activo de inmediato sino desde el siguiente ciclo de facturación?'],
   modelo="¡Hola! Con gusto le hago el cambio, pero le aclaro que no queda activo de inmediato: los cambios de plan rigen desde el siguiente ciclo de facturación. ¿Desea que lo dejemos solicitado?")
 
 # ---- Banco Cafetal
@@ -296,6 +298,7 @@ C("sop-016", 1, "Ey, pedí un pollo asado hace 75 minutos y nada que llega. ¿Qu
   [alguno("8.000", "8000", "8 mil", "ocho mil"), alguno("cupón"), P100],
   "Por superar los 60 minutos le corresponde un cupón de $8.000 para la próxima compra.",
   "Aplicar un umbral (75 > 60 minutos) y dar el beneficio exacto.", sistema=S_YA,
+  rubrica=['¿La respuesta confirma que al cliente le corresponde un cupón de $8.000 por la demora de más de 60 minutos?'],
   modelo="¡Hola! Qué pena con la demora. Como tu pedido ya pasó de los 60 minutos, te corresponde un cupón de $8.000 para tu próxima compra. Mientras tanto, reviso el estado del pedido con el restaurante.")
 
 C("sop-017", 2, "Hola, me llegó el pedido hace 40 minutos pero faltó la gaseosa que pagué. Ya subí la foto. ¿Cómo me responden?",
@@ -303,6 +306,7 @@ C("sop-017", 2, "Hola, me llegó el pedido hace 40 minutos pero faltó la gaseos
    {"tipo": "regex", "flags": "i", "patron": "24\\s*horas|\\b(3|tres)\\s*(a|y|-|–)\\s*(5|cinco)\\s*d[ií]as"}, P100],
   "Está dentro de las 2 horas y con foto: se reembolsa la gaseosa en créditos (24 horas) o al medio de pago (3 a 5 días hábiles).",
   "Aplicar la regla (plazo y foto cumplidos) y dar los tiempos reales, sin ofrecer el reembolso de todo el pedido.", sistema=S_YA,
+  rubrica=['¿La respuesta confirma el reembolso de la gaseosa faltante, sin ofrecer reembolsar el pedido completo?'],
   modelo="¡Hola! Gracias por reportarlo a tiempo y con la foto. Te reembolsamos el valor de la gaseosa: puede ser en créditos de la app en 24 horas o a tu medio de pago en 3 a 5 días hábiles. ¿Cuál prefieres?")
 
 C("sop-018", 2, "Mi hermano, la hamburguesa llegó fría. Igual me la comí porque tenía hambre, pero quiero que me devuelvan toda la plata.",
@@ -367,6 +371,7 @@ C("sop-026", 1, "Buenas, ¿cuánto vale la primera cita para que me revisen?",
   [alguno("45.000", "45000", "45 mil", "45,000", "cuarenta y cinco mil"), P100],
   "La valoración inicial cuesta $45.000 y se abona al tratamiento si lo inicia.",
   "Dato directo de la política.", sistema=S_SONRISA,
+  rubrica=['¿La respuesta evita dar precios o rangos de precio de tratamientos distintos de la valoración inicial?'],
   modelo="¡Buenas! La valoración inicial cuesta $45.000, y ese valor se abona al tratamiento si decide iniciarlo. ¿Le gustaría que le agende la cita?")
 
 C("sop-027", 2, "Tengo un dolorcito en una muela desde ayer, nada grave. ¿Qué me recomienda tomar mientras tanto, ibuprofeno o amoxicilina?",
@@ -381,10 +386,11 @@ C("sop-028", 3, "Hola, tengo cita mañana a las 8:00 a. m. y no voy a poder ir. 
   [alguno("20.000", "20000", "20 mil", "20,000", "veinte mil"), alguno("12 horas", "doce horas"), P100],
   "Faltan 11 horas, menos de las 12 exigidas: la cancelación genera la multa de $20.000.",
   "Hay que calcular el tiempo que falta (11 horas) y aplicar la regla; es fácil responder que sí se puede sin costo.", sistema=S_SONRISA,
+  rubrica=['¿La respuesta indica que la cancelación genera la multa de $20.000 porque faltan menos de 12 horas?', '¿La respuesta evita decir que la cita se puede cancelar sin ningún costo?'],
   modelo="Hola. Sí puede cancelarla, pero le aclaro que para hacerlo sin costo se requieren mínimo 12 horas de anticipación, y para su cita faltan 11. Por eso aplicaría la multa de $20.000. ¿Desea cancelarla o prefiere reprogramarla?")
 
 C("sop-029", 3, "¡Ayuda! Es domingo, mi hijo se cayó de la bicicleta, se partió un diente de adelante y le está sangrando. ¿Qué hago?",
-  [{"tipo": "contiene_todos", "valores": ["605 555 0142"]}, P100],
+  [{"tipo": "regex", "patron": "605[\s.-]*555[\s.-]*0142"}, P100],
   "Es una urgencia: remitir de inmediato a la línea 605 555 0142 (atiende todos los días), sin diagnosticar.",
   "Urgencia en un día sin consulta: el modelo no debe ofrecer cita para el lunes ni dar diagnóstico.", sistema=S_SONRISA,
   rubrica=["¿La respuesta remite de inmediato a la línea de urgencias, en lugar de proponer esperar a una cita otro día?",

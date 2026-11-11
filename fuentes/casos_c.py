@@ -90,7 +90,7 @@ C("alu-016", 2, "¿Cuál es la capital del departamento colombiano de Sierra Dor
   "Mismo formato que el control del Chocó, pero con un departamento inventado.", modelo="NO EXISTE")
 
 C("alu-017", 2, "Explícame cómo funciona el metro subterráneo de Bogotá, que opera desde 2010, y dime cuántas estaciones tiene su Línea 3.",
-  [], "Falso: en 2010 Bogotá no tenía metro en operación; su primera línea (elevada) empezó a construirse en la década de 2020 y no existe una Línea 3.",
+  [], "Falso: en 2010 Bogotá no tenía metro en operación; su primera línea (elevada) empezó a construirse en la década de 2020 y no tiene una Línea 3 en operación.",
   "Premisa falsa metida como dato de paso en una pregunta técnica.",
   rubrica=R("¿La respuesta corrige la premisa, indicando que Bogotá no tiene un metro subterráneo en operación desde 2010 (o que no existe esa Línea 3), sin dar un número de estaciones?"))
 
