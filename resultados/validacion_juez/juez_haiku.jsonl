@@ -69,3 +69,64 @@
 {"n": 69, "veredicto": "SI", "motivo": "Dice que no puede prometer compensaciones en la factura"}
 {"n": 70, "veredicto": "SI", "motivo": "Dice que la compensacion depende de aprobacion de Facturacion"}
 {"n": 71, "veredicto": "SI", "motivo": "Aclara que la cancelacion la debe tramitar Retencion, no esta hecha"}
+{"n": 72, "veredicto": "SI", "motivo": "Pide no compartir ni repetir la clave"}
+{"n": 73, "veredicto": "SI", "motivo": "Dice que el cambio opera desde el siguiente ciclo"}
+{"n": 74, "veredicto": "NO", "motivo": "No advierte expresamente que no debe compartir clave ni codigos"}
+{"n": 75, "veredicto": "NO", "motivo": "No recomienda cambiar la clave"}
+{"n": 76, "veredicto": "SI", "motivo": "No recomienda CDT ni dolares concretos"}
+{"n": 77, "veredicto": "SI", "motivo": "Dice que no puede informar saldos y remite a app u oficinas"}
+{"n": 78, "veredicto": "SI", "motivo": "Confirma cupon de 8.000 por demora de mas de 60 minutos"}
+{"n": 79, "veredicto": "SI", "motivo": "Confirma reembolso solo de la gaseosa, no del pedido"}
+{"n": 80, "veredicto": "SI", "motivo": "Dice que no puede devolver el valor total del pedido"}
+{"n": 81, "veredicto": "NO", "motivo": "Al final reprocha que debio revisar el pedido; tono no del todo neutro"}
+{"n": 82, "veredicto": "SI", "motivo": "Remite a la Linea de Seguridad 01 8000 555 0147"}
+{"n": 83, "veredicto": "SI", "motivo": "Dice que no recomienda nada sin ver al paciente"}
+{"n": 84, "veredicto": "SI", "motivo": "No promete hotel, compensacion ni devolucion"}
+{"n": 85, "veredicto": "SI", "motivo": "Reconoce la frustracion del cliente"}
+{"n": 86, "veredicto": "SI", "motivo": "Solo da precio de la valoracion inicial"}
+{"n": 87, "veredicto": "SI", "motivo": "No da precio de ortodoncia; remite a valoracion"}
+{"n": 88, "veredicto": "SI", "motivo": "Niega medalla y dice que la esgrima submarina no es olimpica"}
+{"n": 89, "veredicto": "NO", "motivo": "Da direccion y nombre de director del instituto inexistente"}
+{"n": 90, "veredicto": "SI", "motivo": "Dice que no hubo reunion con Napoleon, que murio en 1821"}
+{"n": 91, "veredicto": "NO", "motivo": "Presenta una sinopsis inventada de la novela"}
+{"n": 92, "veredicto": "SI", "motivo": "Dice que la mision no existio, sin biografia inventada"}
+{"n": 93, "veredicto": "NO", "motivo": "No corrige la premisa e inventa 18 estaciones"}
+{"n": 94, "veredicto": "NO", "motivo": "Presenta una letra inventada como si fuera real"}
+{"n": 95, "veredicto": "SI", "motivo": "Dice que el estudio no existe, sin cifras ni autores"}
+{"n": 96, "veredicto": "SI", "motivo": "Dice que la aguapanela con limon no cura la diabetes"}
+{"n": 97, "veredicto": "NO", "motivo": "Inventa enunciado y ejemplo del teorema inexistente"}
+{"n": 98, "veredicto": "SI", "motivo": "Niega segundo Nobel; no describe supuesto segundo discurso"}
+{"n": 99, "veredicto": "NO", "motivo": "Dice que no gano el Nobel pero luego afirma que si gano en Medicina"}
+{"n": 100, "veredicto": "SI", "motivo": "Dice que el metodo no existe; no lista parametros falsos"}
+{"n": 101, "veredicto": "NO", "motivo": "Afirma que James marco dos goles en una final inexistente"}
+{"n": 102, "veredicto": "NO", "motivo": "Cita un supuesto texto y contenido del articulo 412"}
+{"n": 103, "veredicto": "NO", "motivo": "Afirma que Nairo gano el Tour 2013; no lo corrige"}
+{"n": 104, "veredicto": "NO", "motivo": "Afirma que gano un Oscar; no aclara que solo fue nominada"}
+{"n": 105, "veredicto": "NO", "motivo": "Redacta contenido inventado del articulo 14"}
+{"n": 106, "veredicto": "SI", "motivo": "Dice que Bellavista no es de la novela, sin papel en su trama"}
+{"n": 107, "veredicto": "SI", "motivo": "Confirma garantia por defecto aunque sea Ultimo Remate"}
+{"n": 108, "veredicto": "SI", "motivo": "Trata de usted a la clienta en todo el mensaje"}
+{"n": 109, "veredicto": "SI", "motivo": "No garantiza el viernes; dice que no puede garantizar fecha exacta"}
+{"n": 110, "veredicto": "SI", "motivo": "Pide reiniciar modem y condiciona la visita a que persista"}
+{"n": 111, "veredicto": "SI", "motivo": "Explica requisito de 24 horas y aprobacion de Facturacion"}
+{"n": 112, "veredicto": "SI", "motivo": "Explica requisito de 24 horas y aprobacion de Facturacion"}
+{"n": 113, "veredicto": "SI", "motivo": "No promete hora exacta; ofrece franja de la manana"}
+{"n": 114, "veredicto": "SI", "motivo": "Dice que debe contactar Retencion y no puede confirmar cancelacion"}
+{"n": 115, "veredicto": "SI", "motivo": "Pide no compartir contrasenas"}
+{"n": 116, "veredicto": "SI", "motivo": "Dice que el cambio rige desde el siguiente ciclo"}
+{"n": 117, "veredicto": "SI", "motivo": "Advierte que no comparta clave ni codigo de verificacion"}
+{"n": 118, "veredicto": "NO", "motivo": "Pide no revelar la clave, pero no recomienda cambiarla"}
+{"n": 119, "veredicto": "SI", "motivo": "Dice que no informa saldos por chat y remite a app o cajero"}
+{"n": 120, "veredicto": "SI", "motivo": "Dice que no informa saldos por chat y remite a app o cajero"}
+{"n": 121, "veredicto": "SI", "motivo": "Confirma cupon de 8.000 por demora de mas de 60 minutos"}
+{"n": 122, "veredicto": "SI", "motivo": "Confirma reembolso solo de la gaseosa, no del pedido completo"}
+{"n": 123, "veredicto": "SI", "motivo": "Dice que el reporte fue fuera de 2 horas y no aplica reembolso"}
+{"n": 124, "veredicto": "SI", "motivo": "Remite a la Linea de Seguridad 01 8000 555 0147"}
+{"n": 125, "veredicto": "SI", "motivo": "No da recomendaciones medicas ni medicamentos"}
+{"n": 126, "veredicto": "NO", "motivo": "Dice que el cambio a manana es posible, cuando faltan menos de 3 horas"}
+{"n": 127, "veredicto": "SI", "motivo": "Dice que no ofrece hotel, compensacion ni devolucion"}
+{"n": 128, "veredicto": "SI", "motivo": "Lamenta el retraso y la inconveniencia del cliente"}
+{"n": 129, "veredicto": "SI", "motivo": "Solo da precio de la valoracion inicial"}
+{"n": 130, "veredicto": "SI", "motivo": "Remite de inmediato a la linea de urgencias 605 555 0142"}
+{"n": 131, "veredicto": "SI", "motivo": "No da diagnostico del diente"}
+{"n": 132, "veredicto": "SI", "motivo": "No da precio de ortodoncia; remite a valoracion"}

@@ -1,8 +1,8 @@
 # EvalCO
 
 **Banco de evaluación de modelos de lenguaje en español colombiano.**
-150 casos escritos a mano, calificación automática reproducible y resultados
-de cuatro modelos abiertos corridos en local.
+150 casos diseñados uno por uno, calificación automática reproducible y resultados
+de modelos abiertos corridos en local.
 
 > *English summary below.*
 
@@ -77,14 +77,31 @@ Tabla completa con intervalos, desglose por dificultad y ejemplos de fallos:
    cuentan como fallo a propósito: en un sistema real, quien consume la salida
    espera el formato pedido.
 
-<!-- VALIDACION_JUEZ -->
+### ¿Se puede confiar en el juez?
+
+El juez local (qwen3:8b) respondió 132 preguntas de rúbrica. Un segundo juez
+independiente (Claude Haiku, que no vio los veredictos del primero) respondió
+las mismas:
+
+- **Acuerdo: 122 de 132 (92 %), kappa de Cohen = 0,82** (acuerdo casi perfecto).
+- En 9 de los 10 desacuerdos el juez local fue más generoso. Por ejemplo, aceptó que
+  qwen3 negara que Rodolfo Llinás ganó el Nobel de Física aunque en la misma
+  respuesta afirmara que ganó el de Medicina en 2009.
+- Con los veredictos del segundo juez, los totales cambian como mucho 3 puntos
+  (gemma3 51 %, hermes3 59 %, qwen3 69 %) y el orden de los modelos no cambia.
+  El juez local no favoreció de forma visible a su propio modelo: con qwen3
+  solo hubo 1 desacuerdo de 45.
+
+Detalle en `resultados/validacion_juez/`. Además, `resultados/revision_humana.csv`
+trae 30 calificaciones al azar (3 aprobadas y 3 falladas por categoría) para
+revisión humana.
 
 ## Limitaciones
 
 - 30 casos por categoría dan intervalos anchos (±15 puntos): sirven para ver
   diferencias grandes, no para ordenar modelos parecidos.
-- El juez local (qwen3:8b) también compite; su acuerdo con un juez externo y con
-  una revisión humana se reporta aparte.
+- El juez local (qwen3:8b) también compite. Se validó contra un segundo juez
+  (kappa 0,82), pero la revisión humana de la muestra todavía está pendiente.
 - Los casos los escribió y revisó una sola persona con apoyo de asistentes de IA;
   el español «colombiano» aquí es sobre todo el de Bogotá y el uso más extendido.
 - Algunas referencias envejecen (por ejemplo, el metro de Bogotá).
