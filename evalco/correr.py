@@ -17,6 +17,7 @@ def main(argv=None):
     ap.add_argument("--ids", default=None,
                     help="archivo de texto con un id por línea (p. ej. datos/muestra50.txt)")
     ap.add_argument("--timeout", type=int, default=180, help="segundos por respuesta")
+    ap.add_argument("--num-ctx", type=int, default=4096, help="contexto en tokens (los modelos que razonan necesitan más)")
     a = ap.parse_args(argv)
 
     casos = leer_jsonl(a.casos)
@@ -35,10 +36,10 @@ def main(argv=None):
         pend = [c for c in casos if (modelo, c["id"]) not in hechos]
         print(f"== {modelo}: {len(pend)} pendientes de {len(casos)}", flush=True)
         for i, c in enumerate(pend, 1):
-            reg = {"modelo": modelo, "id": c["id"], "think": "off" if a.think_off else "default"}
+            reg = {"modelo": modelo, "id": c["id"], "think": "off" if a.think_off else "default", "num_ctx": a.num_ctx}
             try:
                 r = cliente.chat(modelo, c["prompt"], c.get("sistema"), think=think,
-                                timeout=a.timeout)
+                                timeout=a.timeout, num_ctx=a.num_ctx)
                 reg.update(respuesta=r["texto"], segundos=r["segundos"],
                            tokens_in=r["tokens_in"], tokens_out=r["tokens_out"])
                 print(f"[{modelo}] {i}/{len(pend)} {c['id']} {r['segundos']}s "

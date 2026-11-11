@@ -19,7 +19,7 @@ def _post(payload, timeout):
         return json.loads(resp.read().decode("utf-8"))
 
 
-def chat(modelo, prompt, sistema=None, think=None, timeout=180):
+def chat(modelo, prompt, sistema=None, think=None, timeout=180, num_ctx=4096):
     """Devuelve dict: texto, segundos, tokens_in, tokens_out.
 
     think: None (no enviar), True o False.
@@ -29,7 +29,7 @@ def chat(modelo, prompt, sistema=None, think=None, timeout=180):
         msgs.append({"role": "system", "content": sistema})
     msgs.append({"role": "user", "content": prompt})
     payload = {"model": modelo, "messages": msgs, "stream": False,
-               "options": {"temperature": 0, "seed": 42, "num_ctx": 4096}}
+               "options": {"temperature": 0, "seed": 42, "num_ctx": num_ctx}}
     if think is not None:
         payload["think"] = think
     t0 = time.time()
