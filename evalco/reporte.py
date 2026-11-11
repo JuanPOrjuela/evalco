@@ -46,15 +46,44 @@ def _fallo_texto(cal):
     return "; ".join(partes) or "sin detalle"
 
 
-def construir(carpeta, casos_ruta):
+def _leer_ids(ruta):
+    if not ruta or not os.path.exists(ruta):
+        return None
+    with open(ruta, encoding="utf-8") as f:
+        return {l.strip() for l in f if l.strip()}
+
+
+def construir(carpeta, casos_ruta, muestra_ruta=None):
     casos = {c["id"]: c for c in leer_jsonl(casos_ruta)}
-    cals = leer_jsonl(os.path.join(carpeta, "calificaciones.jsonl"))
+    todas = leer_jsonl(os.path.join(carpeta, "calificaciones.jsonl"))
     resp = ultimas_respuestas(carpeta)
-    modelos = sorted({c["modelo"] for c in cals})
+    # modelos completos (todos los casos) van a las tablas principales;
+    # los parciales solo aparecen en la tabla de la muestra
+    cobertura = {}
+    for c in todas:
+        cobertura.setdefault(c["modelo"], set()).add(c["id"])
+    completos = sorted(m for m, ids in cobertura.items() if set(casos) <= ids)
+    cals = [c for c in todas if c["modelo"] in completos]
+    modelos = completos
     cats = [c for c in CATEGORIAS if any(x["categoria"] == c for x in cals)]
     cats += sorted({x["categoria"] for x in cals} - set(cats))
     difs = sorted({x["dificultad"] for x in cals})
-    datos = {"modelos": modelos, "cats": cats, "difs": difs, "tabla": {}, "total": {},
+    muestra = _leer_ids(muestra_ruta)
+    datos_muestra = None
+    if muestra:
+        mods_m = sorted(m for m, ids in cobertura.items() if muestra <= ids)
+        datos_muestra = {"n": len(muestra), "modelos": mods_m, "tabla": {}, "total": {}, "tiempo": {}}
+        for m in mods_m:
+            sub_m = [c for c in todas if c["modelo"] == m and c["id"] in muestra]
+            for cat in CATEGORIAS:
+                s2 = [c for c in sub_m if c["categoria"] == cat]
+                datos_muestra["tabla"][(m, cat)] = (sum(c["paso"] for c in s2), len(s2))
+            datos_muestra["total"][m] = (sum(c["paso"] for c in sub_m), len(sub_m))
+            ts = [resp[(m, c["id"])].get("segundos") for c in sub_m if (m, c["id"]) in resp]
+            ts = [t for t in ts if t is not None]
+            datos_muestra["tiempo"][m] = sum(ts) / len(ts) if ts else None
+    datos = {"muestra": datos_muestra, "parciales": sorted(set(cobertura) - set(completos)),
+             "modelos": modelos, "cats": cats, "difs": difs, "tabla": {}, "total": {},
              "dif": {}, "tiempo": {}, "think": {}, "fallos": {}, "juez": set(), "sin_parsear": 0}
     for m in modelos:
         mine = [c for c in cals if c["modelo"] == m]
@@ -102,6 +131,17 @@ def a_markdown(datos):
     for m in ms:
         celdas = [_fmt(*datos["tabla"][(m, c)]) for c in datos["cats"]] + [_fmt(*datos["total"][m])]
         L.append(f"| {m} | " + " | ".join(celdas) + " |")
+    dm = datos.get("muestra")
+    if dm and dm["modelos"]:
+        L += ["", f"## Muestra estratificada de {dm['n']} casos", "",
+              "Todos los modelos sobre los mismos casos (10 por categoría), para incluir a los que "
+              "solo se corrieron en la muestra.", ""]
+        L += ["| Modelo | " + " | ".join(CATEGORIAS) + " | Total | s/resp. |",
+              "|---|" + "---|" * (len(CATEGORIAS) + 2)]
+        for m in dm["modelos"]:
+            t = dm["tiempo"][m]
+            L.append(f"| {m} | " + " | ".join(_fmt(*dm["tabla"][(m, c)]) for c in CATEGORIAS)
+                     + f" | {_fmt(*dm['total'][m])} | {'—' if t is None else f'{t:.1f}'} |")
     L += ["", "## Aciertos por dificultad", ""]
     L += ["| Modelo | " + " | ".join(f"Dificultad {d}" for d in datos["difs"]) + " |",
           "|---|" + "---|" * len(datos["difs"])]
@@ -174,6 +214,16 @@ def a_html(datos):
          "intervalo de Wilson al 95 % en puntos porcentuales.</p>"]
     filas = [[m] + [_fmt(*datos["tabla"][(m, c)]) for c in cats] + [_fmt(*datos["total"][m])] for m in ms]
     H.append(_html_tabla(["Modelo"] + cats + ["Total"], filas))
+    dm = datos.get("muestra")
+    if dm and dm["modelos"]:
+        H.append(f"<h2>Muestra estratificada de {dm['n']} casos</h2>")
+        H.append("<p class='mut'>Todos los modelos sobre los mismos casos (10 por categoría), para "
+                 "incluir a los que solo se corrieron en la muestra.</p>")
+        H.append(_html_tabla(["Modelo"] + CATEGORIAS + ["Total", "s/resp."],
+                             [[m] + [_fmt(*dm["tabla"][(m, c)]) for c in CATEGORIAS]
+                              + [_fmt(*dm["total"][m]),
+                                 "—" if dm["tiempo"][m] is None else f"{dm['tiempo'][m]:.1f}"]
+                              for m in dm["modelos"]]))
     H.append("<h2>Aciertos por dificultad</h2>")
     H.append(_html_tabla(["Modelo"] + [f"Dificultad {d}" for d in difs],
                          [[m] + [_fmt(*datos["dif"][(m, d)]) for d in difs] for m in ms]))
@@ -203,8 +253,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser(prog="evalco.reporte")
     ap.add_argument("carpeta")
     ap.add_argument("--casos", default="datos/casos.jsonl")
+    ap.add_argument("--muestra", default="datos/muestra50.txt",
+                    help="ids de la muestra estratificada (se ignora si no existe)")
     a = ap.parse_args(argv)
-    datos = construir(a.carpeta, a.casos)
+    datos = construir(a.carpeta, a.casos, a.muestra)
     with open(os.path.join(a.carpeta, "resumen.md"), "w", encoding="utf-8") as f:
         f.write(a_markdown(datos))
     with open(os.path.join(a.carpeta, "index.html"), "w", encoding="utf-8") as f:

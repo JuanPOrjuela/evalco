@@ -14,9 +14,16 @@ def main(argv=None):
     ap.add_argument("--salida", default="resultados/")
     ap.add_argument("--think-off", action="store_true", help="enviar think:false")
     ap.add_argument("--limite", type=int, default=None, help="solo los primeros N casos")
+    ap.add_argument("--ids", default=None,
+                    help="archivo de texto con un id por línea (p. ej. datos/muestra50.txt)")
+    ap.add_argument("--timeout", type=int, default=180, help="segundos por respuesta")
     a = ap.parse_args(argv)
 
     casos = leer_jsonl(a.casos)
+    if a.ids:
+        with open(a.ids, encoding="utf-8") as f:
+            ids = {l.strip() for l in f if l.strip()}
+        casos = [c for c in casos if c["id"] in ids]
     if a.limite:
         casos = casos[:a.limite]
     os.makedirs(a.salida, exist_ok=True)
@@ -30,7 +37,8 @@ def main(argv=None):
         for i, c in enumerate(pend, 1):
             reg = {"modelo": modelo, "id": c["id"], "think": "off" if a.think_off else "default"}
             try:
-                r = cliente.chat(modelo, c["prompt"], c.get("sistema"), think=think)
+                r = cliente.chat(modelo, c["prompt"], c.get("sistema"), think=think,
+                                timeout=a.timeout)
                 reg.update(respuesta=r["texto"], segundos=r["segundos"],
                            tokens_in=r["tokens_in"], tokens_out=r["tokens_out"])
                 print(f"[{modelo}] {i}/{len(pend)} {c['id']} {r['segundos']}s "

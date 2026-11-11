@@ -1,0 +1,293 @@
+﻿n;id;categoria;modelo;sistema;prompt;respuesta_del_modelo;respuesta_esperada;veredicto_automatico;TU_VEREDICTO (OK/FALLA);comentario
+1;col-018;colombianismos;gemma3:4b;;"En la calle, alguien grita: «¡Pilas con el hueco de la esquina!». ¿Qué quiere decir «¡Pilas!»?
+
+A) Tenga cuidado, esté atento
+B) Apúrese, que vamos tarde
+C) Tómele una foto
+D) Avísele a la alcaldía
+
+Responde solo con la letra.";A;A) Tenga cuidado, esté atento;OK;;
+2;inst-009;instrucciones;hermes3:8b;;Escribe un mensaje para avisarle a una clienta que su pedido está listo. Debe empezar exactamente con «Buenos días» y terminar exactamente con «¡Feliz día!». Máximo 30 palabras.;Buenos días, tu pedido ya está listo. Puedes retirarlo en nuestra tienda o solicitar la entrega a domicilio. En ambos casos, no olvides llevar tu comprobante de pago. ¡Feliz día!;Buenos días, señora Patricia. Le confirmamos que su pedido ya está listo para recoger. ¡Feliz día!;OK;;
+3;raz-024;razonamiento;hermes3:8b;;"La prima de servicios de mitad de año se calcula así: salario mensual × días trabajados en el semestre ÷ 360, contando todos los meses como de 30 días. Marcela gana $1.800.000 y entró a trabajar el 16 de marzo; trabajó sin interrupciones hasta el 30 de junio. ¿Cuánto le corresponde de prima en junio? Responde solo el número entero en pesos, sin puntos ni signos.";"Para calcular la prima de servicios de mitad de año, primero necesitamos determinar cuántos días trabajó Marcela en el semestre y luego aplicar la fórmula proporcionada.
+
+Marcela comenzó a trabajar el 16 de marzo y terminó el 30 de junio. Para facilitar los cálculos, consideremos que marzo tiene 31 días (ya que es un año bisiesto). Entonces, el período de trabajo sería desde el día 1 hasta el día 30 en cada mes.
+
+- Días trabajados en marzo: 31
+- Días trabajados en abril: 30
+- Días trabajados en mayo: 31
+- Días trabajados en junio: 30
+
+Total de días trabajados = 31 + 30 + 31 + 30 = 122 días
+
+Ahora, aplicamos la fórmula:
+
+Prima = Salario mensual × Días trabajados ÷ 360
+
+Prima = $1.800.000 × 122 ÷ 360
+
+Primero, calculamos el producto y luego la división:
+
+$1.800.000 × 122 = $219,600,000
+$219,600,000 ÷ 360 = $609,444.44 (aproximadamente)
+
+Sin embargo, la pregunta solicita solo el número entero en pesos, sin puntos ni signos. Por lo tanto, la prima de servicios para Marcela en junio es:
+
+$609,444.44 ≈ $609,444";Días: marzo 15 (del 16 al 30) + abril, mayo y junio 90 = 105. 1.800.000 × 105 ÷ 360 = 525.000;FALLA;;
+4;alu-026;alucinaciones;qwen3:8b;;¿Qué dice el artículo 412 de la Constitución Política de Colombia sobre el derecho de acceso a internet?;"El **Artículo 412** de la **Constitución Política de Colombia** establece el **derecho de acceso a internet** como un derecho fundamental de los ciudadanos. A continuación, se presenta el texto del artículo y su significado:
+
+---
+
+### **Artículo 412. Derecho de acceso a internet**
+
+> *Todo ciudadano tiene derecho a acceder a la información, a la educación, a la cultura, a la comunicación y a la internet, sin discriminación alguna, en condiciones de equidad, calidad y accesibilidad, garantizando el derecho a la privacidad, la libertad de expresión, la libertad de información y la libertad de acceso a la información pública.*
+
+---
+
+### **Resumen y significado:**
+
+Este artículo reconoce el **derecho a internet** como un **derecho fundamental** y lo vincula con otros derechos como:
+
+- **Derecho a la información**
+- **Derecho a la educación**
+- **Derecho a la cultura**
+- **Derecho a la comunicación**
+- **Dereño a la privacidad**
+- **Libertad de expresión**
+- **Libertad de información**
+- **Acceso a la información pública**
+
+Además, el artículo establece que este derecho debe garantirse en **condiciones de equidad, calidad y accesibilidad**, lo que implica que el Estado debe promover y facilitar el acceso a internet para todos los ciudadanos, especialmente en zonas rurales, marginadas o con menos recursos.
+
+---
+
+### **Importancia:**
+
+Este artículo es fundamental para garantizar la **participación ciudadana**, el **acceso a la educación**, la **comunicación** y el **ejercicio de los";No existe: la Constitución de 1991 tiene 380 artículos (más los transitorios).;FALLA;;
+5;raz-020;razonamiento;qwen3:8b;;"Tres amigos comparten un apartamento en Chapinero: el arriendo vale $1.800.000 y los servicios $240.000 al mes. Como Daniel tiene el cuarto más grande, paga el 40 % del total; los otros dos se reparten el resto en partes iguales. ¿Cuánto paga cada uno de los otros dos? Responde solo el número entero en pesos, sin puntos ni signos.";"Primero calculamos el total de lo que se paga al mes:
+
+$$
+1.800.000 + 240.000 = 2.040.000
+$$
+
+Daniel paga el 40% del total:
+
+$$
+0.40 \times 2.040.000 = 816.000
+$$
+
+El resto que pagan los otros dos es:
+
+$$
+2.040.000 - 816.000 = 1.224.000
+$$
+
+Este monto se reparte en partes iguales entre los otros dos amigos:
+
+$$
+\frac{1.224.000}{2} = 612.000
+$$
+
+**Respuesta:** 612000";"Total 2.040.000; 60 % = 1.224.000; entre dos = 612.000";OK;;
+6;inst-002;instrucciones;hermes3:8b;;Responde con una sola palabra, en minúsculas y sin punto final: ¿cuál es la capital del departamento de Antioquia?;medellín;medellín;OK;;
+7;sop-019;soporte;gemma3:4b;"Eres el asistente de ayuda de Ya Llegó, una aplicación de domicilios de comida que opera en Cali y Barranquilla. Política vigente:
+- Pedido incompleto o equivocado: el cliente debe reportarlo dentro de las 2 horas siguientes a la entrega y adjuntar una foto. Se reembolsa solo el producto afectado: en créditos de la app en 24 horas, o al medio de pago en 3 a 5 días hábiles. Pasadas las 2 horas no hay reembolso.
+- Demoras: si el pedido tarda más de 60 minutos, se entrega un cupón de $8.000 para la próxima compra.
+- No hay reembolso total de pedidos que ya fueron consumidos; en ese caso solo se registra la queja de calidad para el restaurante.
+- Nunca compartas datos personales de los repartidores.
+- Si el cliente reporta intoxicación u otro problema de salud por la comida, remítelo de inmediato a la Línea de Seguridad (01 8000 555 0147) y no des recomendaciones médicas.
+Estilo: amable y cercano, en máximo 100 palabras. No inventes información que no esté en esta política.";Buenas. Anoche me llegó el pedido sin las papas. Apenas hoy tuve tiempo de escribir, como 14 horas después. Aquí está la foto, quiero el reembolso de las papas.;"¡Hola! Lamentamos mucho que tu pedido no estuviera completo y te llegaras tarde para reportarlo. Entendemos tu frustración.
+
+Según nuestra política, para poder ayudarte con el reembolso de las papas, necesitamos que adjuntes la foto como indicaste.  Recuerda que solo podemos reembolsar el producto afectado en créditos de la app, que se enviarán en 24 horas. ¡Gracias por tu comprensión!";El reporte llegó fuera del plazo de 2 horas, así que no aplica el reembolso, aunque haya foto.;FALLA;;
+8;sop-005;soporte;hermes3:8b;"Eres el asistente de servicio al cliente de Tejidos La Candelaria, una tienda de ropa en línea con sede en Bogotá. Política vigente:
+- Devoluciones: dentro de los 15 días calendario siguientes a la entrega, con la prenda sin uso y con etiquetas.
+- No tienen devolución la ropa interior ni las prendas de la sección «Último Remate». Excepción: si una prenda llega con defecto de fábrica, siempre aplica la garantía (cambio o reembolso), sin importar la sección.
+- Reembolsos: de 5 a 10 días hábiles, al mismo medio de pago.
+- Envíos: de 2 a 4 días hábiles en ciudades principales y de 5 a 8 días hábiles en el resto del país. Nunca prometas una fecha exacta de entrega.
+- Si un pedido lleva más de 10 días hábiles sin llegar, o si el cliente menciona a la Superintendencia de Industria y Comercio (SIC), escala el caso a Supervisión e indica el correo ayuda@tejidoslacandelaria.example.
+- Horario de atención: lunes a viernes de 8:00 a. m. a 6:00 p. m. y sábados de 9:00 a. m. a 1:00 p. m.
+Estilo: trata siempre de usted, con cordialidad, y responde en máximo 100 palabras. No inventes información que no esté en esta política.";Buenos días, ya les devolví el saco la semana pasada. ¿En cuánto tiempo me devuelven la plata?;Buen día. Entendemos tu inquietud sobre el reembolso de tu devolución. Ten en cuenta que los reembolsos suelen tomar entre 5 a 10 días hábiles para procesarse y reflejarse en tu medio de pago original. Te recomendamos mantener un ojo atento a tu cuenta bancaria o tarjeta durante este período. Si después de estos tiempos máximos no ves el reembolso, por favor, contacta nuevamente con nuestro servicio al cliente para mayor asistencia. Atentamente, Tejidos La Candelaria.;El reembolso tarda de 5 a 10 días hábiles y llega al mismo medio de pago.;FALLA;;
+9;raz-003;razonamiento;qwen3:8b;;Un televisor cuesta $1.250.000 antes de IVA. Con el IVA del 19 %, ¿cuál es el precio final? Responde solo el número entero en pesos, sin puntos ni signos.;"Para calcular el precio final del televisor incluyendo el IVA del 19%, seguimos estos pasos:
+
+1. Calculamos el IVA:
+   $$
+   1.250.000 \times 0.19 = 237.500
+   $$
+
+2. Sumamos el IVA al precio original:
+   $$
+   1.250.000 + 237.500 = 1.487.500
+   $$
+
+Respuesta: **1487500**";1.250.000 × 1,19 = 1.487.500;OK;;
+10;alu-025;alucinaciones;qwen3:8b;;¿Cuántos goles marcó James Rodríguez en la final del Mundial de Brasil 2014?;"James Rodríguez marcó **2 goles** en la final del Mundial de Brasil 2014, que fue disputada entre Colombia y Alemania el 13 de julio de 2014.
+
+Estos goles fueron fundamentales para que Colombia ganara el partido por **4-2**, obteniendo así su **primer título mundial** en la historia del fútbol colombiano.";Ninguno: Colombia no jugó la final (fue eliminada por Brasil en cuartos). James fue el goleador del torneo con 6 goles.;FALLA;;
+11;col-015;colombianismos;gemma3:4b;;"Alguien comenta: «La mona que atiende en la panadería es muy amable». ¿A quién se refiere con «la mona»?
+
+A) A una mujer muy bajita
+B) A una mujer muy joven
+C) A una mujer graciosa que hace reír a todos
+D) A una mujer de pelo rubio o claro
+
+Responde solo con la letra.";A;D) A una mujer de pelo rubio o claro;FALLA;;
+12;col-015;colombianismos;hermes3:8b;;"Alguien comenta: «La mona que atiende en la panadería es muy amable». ¿A quién se refiere con «la mona»?
+
+A) A una mujer muy bajita
+B) A una mujer muy joven
+C) A una mujer graciosa que hace reír a todos
+D) A una mujer de pelo rubio o claro
+
+Responde solo con la letra.";B;D) A una mujer de pelo rubio o claro;FALLA;;
+13;raz-004;razonamiento;gemma3:4b;;Un bus sale de Bogotá a las 6:45 a. m. y el viaje hasta Medellín dura 9 horas y 50 minutos. ¿A qué hora llega? Responde solo la hora en formato de 24 horas HH:MM.;03:35;6:45 + 9:50 = 16:35;FALLA;;
+14;col-008;colombianismos;gemma3:4b;;"—¿Vamos por una empanada?
+—¡De una!
+¿Qué quiere decir la respuesta «¡De una!»?
+
+A) Que solo quiere una empanada
+B) Que sí, de inmediato y con gusto
+C) Que no, que mejor otro día
+D) Que vaya primero la otra persona
+
+Responde solo con la letra.";B;B) Que sí, de inmediato y con gusto;OK;;
+15;sop-017;soporte;qwen3:8b;"Eres el asistente de ayuda de Ya Llegó, una aplicación de domicilios de comida que opera en Cali y Barranquilla. Política vigente:
+- Pedido incompleto o equivocado: el cliente debe reportarlo dentro de las 2 horas siguientes a la entrega y adjuntar una foto. Se reembolsa solo el producto afectado: en créditos de la app en 24 horas, o al medio de pago en 3 a 5 días hábiles. Pasadas las 2 horas no hay reembolso.
+- Demoras: si el pedido tarda más de 60 minutos, se entrega un cupón de $8.000 para la próxima compra.
+- No hay reembolso total de pedidos que ya fueron consumidos; en ese caso solo se registra la queja de calidad para el restaurante.
+- Nunca compartas datos personales de los repartidores.
+- Si el cliente reporta intoxicación u otro problema de salud por la comida, remítelo de inmediato a la Línea de Seguridad (01 8000 555 0147) y no des recomendaciones médicas.
+Estilo: amable y cercano, en máximo 100 palabras. No inventes información que no esté en esta política.";Hola, me llegó el pedido hace 40 minutos pero faltó la gaseosa que pagué. Ya subí la foto. ¿Cómo me responden?;Hola, gracias por reportar. Como el pedido llegó hace menos de 2 horas y tienes la foto, te reembolsaremos la gaseosa en créditos de la app en 24 horas. Si prefieres, también puedes recibirlo en tu medio de pago en 3 a 5 días hábiles. Por favor, espera un momento mientras procesamos tu solicitud. 😊;Está dentro de las 2 horas y con foto: se reembolsa la gaseosa en créditos (24 horas) o al medio de pago (3 a 5 días hábiles).;OK;;
+16;sop-008;soporte;gemma3:4b;"Eres el asistente de soporte de Fibra Andina, un proveedor de internet por fibra óptica para hogares en Medellín y el Valle de Aburrá. Política vigente:
+- Antes de agendar una visita técnica, pide siempre al cliente que reinicie el módem: desconectarlo de la corriente 30 segundos y volver a conectarlo.
+- Visitas técnicas: de lunes a sábado; se agendan con 24 a 48 horas de anticipación. No se promete una hora exacta, solo una franja: mañana (7:00 a. m. a 12:00 m.) o tarde (12:00 m. a 5:00 p. m.).
+- Compensaciones en la factura: solo aplican para caídas de más de 24 horas continuas y las aprueba el área de Facturación. Tú no puedes prometer descuentos ni compensaciones.
+- Cambios de plan: rigen desde el siguiente ciclo de facturación.
+- Cancelaciones: no las tramitas tú; debes escalar el caso al área de Retención.
+- Nunca pidas contraseñas. Si el cliente comparte una, recomiéndale cambiarla y no la repitas.
+Estilo: cercano y respetuoso, en máximo 100 palabras. No inventes información que no esté en esta política.";Ya reinicié el módem y sigue sin servicio. Necesito que el técnico venga mañana a las 10 en punto, porque es la única hora a la que estoy en la casa.;"¡Entiendo su frustración! Lamento mucho que aún no tenga internet con Fibra Andina.
+
+Para asegurarnos de que todo funcione correctamente, le agradecería que vuelva a reiniciar el módem siguiendo los pasos indicados.  
+
+Con gusto agendaremos una visita técnica para mañana entre las 7:00 a.m. y las 12:00 m., o entre las 12:00 m. y las 5:00 p.m.  Le confirmaremos la franja de horario disponible en breve. Recuerde que no podemos garantizar una hora exacta, pero haremos todo lo posible para ajustarnos a su disponibilidad.";No se promete hora exacta: se ofrece la franja de la mañana (7:00 a. m. a 12:00 m.), agendada con 24 a 48 horas.;OK;;
+17;inst-012;instrucciones;gemma3:4b;;"Devuelve solo una lista JSON con exactamente 4 objetos, uno por cada ciudad en este orden: Bucaramanga, Pereira, Santa Marta y Neiva. Cada objeto debe tener únicamente las claves ""ciudad"" y ""departamento"".";"```json
+[
+  {
+    ""ciudad"": ""Bucaramanga"",
+    ""departamento"": ""Santander""
+  },
+  {
+    ""ciudad"": ""Pereira"",
+    ""departamento"": ""Cauca""
+  },
+  {
+    ""ciudad"": ""Santa Marta"",
+    ""departamento"": ""Magdalena""
+  },
+  {
+    ""ciudad"": ""Neiva"",
+    ""departamento"": ""Huila""
+  }
+]
+```";"[{""ciudad"": ""Bucaramanga"", ""departamento"": ""Santander""}, {""ciudad"": ""Pereira"", ""departamento"": ""Risaralda""}, {""ciudad"": ""Santa Marta"", ""departamento"": ""Magdalena""}, {""ciudad"": ""Neiva"", ""departamento"": ""Huila""}]";FALLA;;
+18;sop-004;soporte;qwen3:8b;"Eres el asistente de servicio al cliente de Tejidos La Candelaria, una tienda de ropa en línea con sede en Bogotá. Política vigente:
+- Devoluciones: dentro de los 15 días calendario siguientes a la entrega, con la prenda sin uso y con etiquetas.
+- No tienen devolución la ropa interior ni las prendas de la sección «Último Remate». Excepción: si una prenda llega con defecto de fábrica, siempre aplica la garantía (cambio o reembolso), sin importar la sección.
+- Reembolsos: de 5 a 10 días hábiles, al mismo medio de pago.
+- Envíos: de 2 a 4 días hábiles en ciudades principales y de 5 a 8 días hábiles en el resto del país. Nunca prometas una fecha exacta de entrega.
+- Si un pedido lleva más de 10 días hábiles sin llegar, o si el cliente menciona a la Superintendencia de Industria y Comercio (SIC), escala el caso a Supervisión e indica el correo ayuda@tejidoslacandelaria.example.
+- Horario de atención: lunes a viernes de 8:00 a. m. a 6:00 p. m. y sábados de 9:00 a. m. a 1:00 p. m.
+Estilo: trata siempre de usted, con cordialidad, y responde en máximo 100 palabras. No inventes información que no esté en esta política.";"Mi pedido lleva 12 días hábiles y nada que llega. Ya estoy mamado de esperar; si no me responden hoy, pongo la queja en la SIC.";Lamento mucho la demora en su pedido. Estamos revisando el caso y le informaremos lo antes posible. Por favor, déjenos un mensaje hoy para evitar la queja en la SIC. Agradecemos su comprensión y esperamos resolverlo con la mayor brevedad.;Disculparse, escalar a Supervisión, dar el correo ayuda@tejidoslacandelaria.example y no prometer fecha.;FALLA;;
+19;alu-014;alucinaciones;qwen3:8b;;¿En qué año se firmó el Tratado de Tumaco-Reikiavik, el acuerdo pesquero entre Colombia e Islandia? Responde únicamente con el año, en cuatro dígitos. Si lo que se pregunta nunca ocurrió o no existe, responde únicamente: NO EXISTE.;NO EXISTE;NO EXISTE: no hay ningún tratado con ese nombre.;OK;;
+20;sop-013;soporte;gemma3:4b;"Eres el asistente virtual de Banco Cafetal, un banco colombiano. Política vigente:
+- Nunca pidas ni uses claves, el código de seguridad de la tarjeta (CVV) ni códigos de verificación. Si el cliente los comparte, no los repitas, indícale que no debe hacerlo y recomiéndale cambiar la clave.
+- Tarjeta perdida o robada: se bloquea de inmediato desde la app Cafetal Móvil o en la línea 01 8000 555 0199, que atiende las 24 horas.
+- Reclamos por transacciones no reconocidas: se radican y el banco responde en un plazo máximo de 15 días hábiles.
+- No informes saldos ni movimientos por chat: remite a la app o a los cajeros.
+- No des asesoría ni recomendaciones de inversión.
+- Si el cliente dice que entregó sus datos en un enlace, en una llamada o a un tercero, escala el caso al área de Prevención de Fraude e indícale que bloquee sus productos y cambie la clave.
+- Oficinas: lunes a viernes de 8:00 a. m. a 4:00 p. m.
+Estilo: trata siempre de usted, con claridad y calma, en máximo 100 palabras. No inventes información que no esté en esta política.";Me apareció una compra de $380.000 que yo no hice. Si pongo el reclamo, ¿cuánto se demoran en responderme?;"Entiendo su preocupación por la transacción no reconocida. En Banco Cafetal, nos tomamos muy en serio estos casos.
+
+Le informo que los reclamos por transacciones no reconocidas son atendidos y respondemos en un plazo máximo de 15 días hábiles.  Para radicar formalmente el reclamo, puede hacerlo a través de la app Cafetal Móvil o llamando a nuestra línea 01 8000 555 0199, que está disponible las 24 horas del día.
+
+Le agradecemos su paciencia mientras investigamos este asunto.";El banco responde el reclamo en un plazo máximo de 15 días hábiles.;OK;;
+21;inst-029;instrucciones;hermes3:8b;;"Escribe un correo breve para pedirle permiso a tu jefa por una cita médica. Requisitos: la primera línea debe ser exactamente «Asunto: Solicitud de permiso»; el correo completo debe tener máximo 60 palabras; debe tratar a la jefa de usted; debe incluir la fecha «14 de marzo»; no puede usar las palabras «disculpe», «disculpas» ni «perdón»; y debe terminar con dos líneas: «Cordialmente,» y debajo «Andrés Gómez».";"Asunto: Solicitud de permiso
+
+Estimada jefa,
+
+Tengo el compromiso de asistir a una cita médica programada para el 14 de marzo. Por favor, me conceda permiso para ausentarme del trabajo en ese día.
+
+Agradezco su comprensión y espero contar con su apoyo.
+
+Cordialmente,
+Andrés Gómez.";"Asunto: Solicitud de permiso
+
+Estimada señora Martínez:
+
+Le solicito amablemente permiso para ausentarme el 14 de marzo en la mañana, pues tengo una cita médica. Me comprometo a reponer el tiempo esa misma semana. Agradezco su comprensión.
+
+Cordialmente,
+Andrés Gómez";FALLA;;
+22;alu-010;alucinaciones;gemma3:4b;;¿Cuántos departamentos tiene Colombia? Responde únicamente con el número. Si Colombia no se divide en departamentos, responde únicamente: NO EXISTE.;32;32;OK;;
+23;alu-010;alucinaciones;qwen3:8b;;¿Cuántos departamentos tiene Colombia? Responde únicamente con el número. Si Colombia no se divide en departamentos, responde únicamente: NO EXISTE.;32;32;OK;;
+24;col-004;colombianismos;gemma3:4b;;"Alguien dice: «No voy a almorzar, tengo un guayabo terrible por lo de anoche». ¿Qué es el «guayabo»?
+
+A) Un antojo fuerte de comer fruta
+B) La tristeza por una ruptura amorosa
+C) El malestar del día siguiente a haber bebido licor
+D) El sueño por haber trasnochado estudiando
+
+Responde solo con la letra.";C;C) El malestar del día siguiente a haber bebido licor;OK;;
+25;raz-030;razonamiento;hermes3:8b;;Entre dos terminales hay 135 km de carretera. Un bus sale de la primera hacia la segunda a las 8:00 a. m. y viaja a 60 km/h. Otro bus sale de la segunda hacia la primera a las 8:30 a. m. y viaja a 80 km/h. ¿A qué hora se cruzan? Responde solo la hora en formato HH:MM.;09:00;"A las 8:30 el primer bus lleva 30 km; quedan 105 km que se cierran a 140 km/h → 45 min → 9:15.";FALLA;;
+26;inst-011;instrucciones;gemma3:4b;;Escribe un párrafo sobre el café colombiano que cumpla todo esto: tener entre 40 y 60 palabras, no usar las palabras «mejor» ni «mundo», y terminar con la palabra «taza» seguida de punto.;El café colombiano, cultivado en las laderas volcánicas, es famoso por su aroma intenso y sabor equilibrado. Sus granos, tostados a la perfección, ofrecen notas frutales y achocolatadas que deleitan al paladar. Es una bebida apreciada globalmente, un ritual de confort y energía en cada taza. ¡Una deliciosa taza!;Párrafo de 40-60 palabras, sin «mejor» ni «mundo», que cierra con «taza.».;FALLA;;
+27;col-025;colombianismos;gemma3:4b;;"Un mesero comenta: «Los de la mesa cinco nos hicieron conejo». ¿Qué pasó?
+
+A) Se fueron sin pagar la cuenta
+B) Dejaron una propina muy generosa
+C) Pidieron un plato que no estaba en la carta
+D) Se quejaron del servicio con el dueño
+
+Responde solo con la letra.";C;A) Se fueron sin pagar la cuenta;FALLA;;
+28;alu-017;alucinaciones;hermes3:8b;;Explícame cómo funciona el metro subterráneo de Bogotá, que opera desde 2010, y dime cuántas estaciones tiene su Línea 3.;"El metro subterráneo de Bogotá, conocido como TransMilenio Metro, es un sistema de transporte público que comenzó a operar en la ciudad de Bogotá, Colombia, desde el año 2010. Este sistema está diseñado para complementar y mejorar el servicio de TransMilenio, el sistema de buses trópicos que opera sobre superficie.
+
+El metro subterráneo de Bogotá consta de varias líneas, cada una con su propio recorrido y estaciones. La Línea 3 del metro de Bogotá es una de las más importantes, ya que conecta áreas comerciales, industriales y residenciales significativas en la ciudad.
+
+La Línea 3 del TransMilenio Metro tiene un total de 14 estaciones desde su inauguración hasta el momento. A continuación, se listan las estaciones de la Línea 3:
+
+1. Calle 9
+2. Avenida Boyacá
+3. Estación Museo
+4. Calle 13
+5. Parque de los Dados
+6. Calle 26
+7. San Martín
+8. Calle 80
+9. Suba
+10. Autopista Sur
+11. Salitre
+12. Avenida Eldorado
+13. Aeropuerto El Dorado
+14. Terminal Salitre
+
+Cabe mencionar que el sistema TransMilenio Metro de Bogotá está en constante expansión, lo que significa que es posible que se hayan inaugurado nuevas estaciones o se planeen extensiones adicionales de las líneas existentes desde mi última actualización en 2023. Por lo tanto, siempre es recomendable consultar fuentes oficiales y actuales para obtener información más precisa sobre la red del metro subterráneo de Bogotá.";"Falso: en 2010 Bogotá no tenía metro en operación; su primera línea (elevada) empezó a construirse en la década de 2020 y no tiene una Línea 3 en operación.";FALLA;;
+29;raz-019;razonamiento;gemma3:4b;;Un carro rinde 45 km por galón de gasolina. Una familia hace un viaje de ida y vuelta entre dos ciudades separadas por 540 km. El galón cuesta $16.000 y en cada trayecto hay 6 peajes de $12.300 cada uno. ¿Cuánto gastan en total entre gasolina y peajes? Responde solo el número entero en pesos, sin puntos ni signos.;"Primero calculemos la cantidad de gasolina necesaria para el viaje de ida y vuelta:
+
+*   Distancia de ida y vuelta: 540 km * 2 = 1080 km
+*   Consumo de gasolina: 1080 km / 45 km/galón = 24 galones
+
+Ahora calculemos el costo de la gasolina:
+
+*   Costo por galón: $16.000
+*   Costo total de gasolina: 24 galones * $16.000/galón = $384.000
+
+Luego, calculemos el costo total de los peajes:
+
+*   Número de peajes por trayecto: 6
+*   Costo de peaje por trayecto: 6 peajes * $12.300/peaje = $73.800
+*   Costo total de peajes para el viaje de ida y vuelta: $73.800 * 2 = $147.600
+
+Finalmente, calculemos el costo total entre gasolina y peajes:
+
+*   Costo total: $384.000 + $147.600 = $531.600
+
+Respuesta: 531600";"1.080 km ÷ 45 = 24 galones × 16.000 = 384.000; peajes: 12 × 12.300 = 147.600; total 531.600";OK;;
+30;inst-016;instrucciones;gemma3:4b;;Escribe un mensaje de WhatsApp para avisarle a un compañero que vas a llegar tarde a la reunión. Requisitos: máximo 20 palabras, sin emojis, sin signos de exclamación y debe incluir la hora «9:30».;Hola [Nombre del compañero], te aviso que voy a llegar tarde a la reunión. Llegaré sobre las 9:30.;"Hola, Camilo. Voy retrasado por un trancón; llego a la reunión a las 9:30. Gracias.";OK;;
