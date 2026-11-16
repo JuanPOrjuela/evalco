@@ -53,7 +53,6 @@ qwen3 se corrió con el razonamiento desactivado (`think: false`).
 Tabla completa con intervalos, desglose por dificultad y ejemplos de fallos:
 [`resultados/resumen.md`](resultados/resumen.md) (o `resultados/index.html`).
 
-<!-- MUESTRA_DEEPSEEK -->
 
 ### Hallazgos
 
